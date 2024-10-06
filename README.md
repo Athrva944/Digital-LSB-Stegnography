@@ -24,3 +24,34 @@
 # References:
 * https://en.wikipedia.org/wiki/Steganography
 * https://en.wikipedia.org/wiki/BMP
+
+# Steganography Project: Hiding Secret Messages in BMP Images
+
+## Overview
+This project demonstrates a simple implementation of steganography by embedding secret data within a BMP image file. The application allows users to encode and decode secret messages inside an image by manipulating the least significant bits (LSB) of the RGB data in the image.
+
+## Features
+1. **Image Embedding**:
+   - Accepts an image file in `.bmp` format and a text file containing the secret message to hide.
+   - Provides an option to add a magic string signature to identify whether an image contains hidden data.
+
+2. **Image Decoding**:
+   - Extracts hidden data from a `.bmp` image that has previously been embedded with a message.
+
+## Steganographic Process
+### Embedding:
+- The secret message is encoded bit-by-bit into the least significant bits of the RGB pixel data in the BMP file.
+- Before encoding the secret message, metadata such as file extension and file size is embedded.
+
+### Decoding:
+- The decoder extracts the hidden data by reading the magic string and metadata, reconstructing the original secret message.
+
+## Requirements
+- **Compiler**: `gcc` version 8.0 or higher.
+- **Optional**: Use `make` for easy build management.
+
+## How to Use
+
+### Embedding a Message
+```bash
+./steg_encoder input_image.bmp secret_message.txt output_image.bmp
